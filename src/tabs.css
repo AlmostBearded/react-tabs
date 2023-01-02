@@ -40,5 +40,5 @@ div[role='tabpanel'] {
 }
 
 div[role='tabpanel'][aria-hidden='true'] {
-  visibility: hidden;
+  display: none;
 }
