@@ -1,0 +1,12 @@
+{
+  "transform": {
+    "^.+\\.(t|j)sx?$": "ts-jest"
+  },
+  "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+  "moduleNameMapper": {
+    "\\.css$": "<rootDir>/test/style-mock.ts"
+  },
+  "testEnvironment": "jsdom",
+  "setupFilesAfterEnv": ["<rootDir>/test/setup-jest.ts"]
+}
