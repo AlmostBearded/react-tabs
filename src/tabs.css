@@ -39,6 +39,6 @@ div[role='tabpanel'] {
   padding-top: 0.5rem;
 }
 
-div[role='tabpanel'][aria-hidden='true'] {
+div[role='tabpanel'][aria-hidden]:not([aria-hidden='false']) {
   display: none;
 }
