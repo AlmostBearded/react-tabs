@@ -20,5 +20,14 @@
     "allowJs": true
   },
   "include": ["src"],
-  "exclude": ["dist", "node_modules", "**/*.test.tsx", "**/*.test.jsx", "**/*.test.ts", "**/*.test.js"]
+  "exclude": [
+    "dist",
+    "node_modules",
+    "**/*.test.tsx",
+    "**/*.test.jsx",
+    "**/*.test.ts",
+    "**/*.test.js",
+    "src/stories",
+    "**/*.stories.tsx"
+  ]
 }
