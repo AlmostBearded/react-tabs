@@ -4,6 +4,9 @@
   grid-template-areas:
     'tablist'
     'tabpanel';
+
+  --tab-color-subdued: #c0c0c0;
+  --tab-color: #000000;
 }
 
 div[role='tablist'] {
@@ -16,17 +19,16 @@ div[role='tablist'] {
 div[role='tablist'] > button[role='tab'] {
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid #c0c0c0;
+  border-bottom: 2px solid var(--tab-color-subdued);
   border-radius: 4px 4px 0 0;
-  color: #c0c0c0;
+  color: var(--tab-color-subdued);
   flex: 1;
   font-weight: bold;
 }
 
 div[role='tablist'] > button[role='tab'][aria-selected]:not([aria-selected='false']) {
-  color: black;
-  border-bottom: 2px solid black;
-  border-radius: 4px 4px 0 0;
+  color: var(--tab-color);
+  border-color: var(--tab-color);
 }
 
 div[role='tablist'] > button[role='tab']:hover {
