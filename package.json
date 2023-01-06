@@ -17,7 +17,7 @@
     "lint": "eslint \"src/**/*.{js,ts,jsx,tsx}\"",
     "format": "prettier --write \"src/**/*.{js,ts,jsx,tsx}\"",
     "prepare": "npm run build",
-    "prepublishOnly": "npm-run-all test prettier lint",
+    "prepublishOnly": "npm-run-all test format lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
