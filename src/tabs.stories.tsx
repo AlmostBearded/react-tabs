@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Tabs } from './tabs'
 
 export default {
