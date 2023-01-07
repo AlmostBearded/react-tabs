@@ -72,17 +72,17 @@ The following demos show the `Tabs` component being used with different configur
 
 ### Single tab
 
-![Demo showing a single tab](./../docs/single-tab.gif)
+![Demo showing a single tab](./docs/single-tab.gif)
 ### Two Tabs
 
-![Demo showing two tabs](./../docs/two-tabs.gif)
+![Demo showing two tabs](./docs/two-tabs.gif)
 
 ### Many Tabs
-![Demo showing many tabs](./../docs/many-tabs.gif)
+![Demo showing many tabs](./docs/many-tabs.gif)
 
 ### Tabs Containing Sign in and Sign up Forms
 
-![Demo showing sign in and sign up forms](./../docs/auth-tabs.gif)
+![Demo showing sign in and sign up forms](./docs/auth-tabs.gif)
 
 ## Known Issues
 
