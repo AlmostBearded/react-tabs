@@ -1,6 +1,7 @@
 import React from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { Tabs } from './tabs'
+import userEvent from '@testing-library/user-event'
 
 describe('Tabs', () => {
   it('should render a single tab', () => {
@@ -56,5 +57,58 @@ describe('Tabs', () => {
     fireEvent.click(screen.getByRole('tab', { name: 'B' }))
     expect(onSelectTab).toHaveBeenCalledTimes(1)
     expect(onSelectTab).toHaveBeenCalledWith('b')
+  })
+
+  it('should navigate the tabs in the tab list in the correct order', async () => {
+    userEvent.setup()
+
+    const onSelectTab = jest.fn()
+    render(
+      <Tabs
+        tabs={[
+          { id: 'a', title: 'A', content: 'Content of A' },
+          { id: 'b', title: 'B', content: 'Content of B' },
+          { id: 'c', title: 'C', content: 'Content of C' },
+        ]}
+        selectedTab='a'
+        onSelectTab={onSelectTab}
+      />,
+    )
+    const a = screen.getByRole('tab', { name: 'A' })
+    const b = screen.getByRole('tab', { name: 'B' })
+    const c = screen.getByRole('tab', { name: 'C' })
+
+    a.focus()
+    expect(a).toHaveFocus()
+    await userEvent.tab()
+    expect(b).toHaveFocus()
+    await userEvent.tab()
+    expect(c).toHaveFocus()
+  })
+
+  it('should first navigate through all tabs and then to the content of the currently selected tab', async () => {
+    userEvent.setup()
+
+    const onSelectTab = jest.fn()
+    render(
+      <Tabs
+        tabs={[
+          { id: 'a', title: 'A', content: <a href='#'>Content of A</a> },
+          { id: 'b', title: 'B', content: <a href='#'>Content of B</a> },
+          { id: 'c', title: 'C', content: <a href='#'>Content of C</a> },
+        ]}
+        selectedTab='a'
+        onSelectTab={onSelectTab}
+      />,
+    )
+
+    const a = screen.getByRole('tab', { name: 'A' })
+    const aContent = screen.getByRole('link', { name: 'Content of A' })
+
+    a.focus()
+    await userEvent.tab()
+    await userEvent.tab()
+    await userEvent.tab()
+    expect(aContent).toHaveFocus()
   })
 })
